@@ -1,0 +1,14 @@
+#!/bin/bash -ex
+
+mkdir /home/ec2-user/mpcs-cc/gas
+aws s3 cp s3://mpcs-cc-students/xuhanxie/ann.zip /home/ec2-user/mpcs-cc
+
+unzip /home/ec2-user/mpcs-cc/ann.zip -d /home/ec2-user/mpcs-cc/gas
+sudo mkdir /home/ec2-user/mpcs-cc/gas/data
+sudo chown -R ec2-user:ec2-user /home/ec2-user/mpcs-cc/gas/*
+sudo -u ec2-user /home/ec2-user/mpcs-cc/gas/ann/run_ann.sh &
+
+
+
+
+
